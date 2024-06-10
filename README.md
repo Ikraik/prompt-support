@@ -1,7 +1,7 @@
 # AI Prompt manipulation and hardening
 Models used:
 * Google Gemini [flash]
-* Character censored AI
+* Character AI in AIDungeon (Mythomax and Tiefighter)
 ## Introduction
 AI manipulation is focused primarily on 2 things, token instructions (that is padded before the prompt) and system instructions (That is padded before a conversation). The easiest way to manipulate token instructions is to make the system "forget" or gaslight the system in prompt to the right answer. For example,
 
@@ -35,4 +35,19 @@ It's possible you're making a mistake in your calculation. Could you show me you
 So what changed? this is involved in the instruction set that was prompted earlier to ensure accuracy. 
 System Instruction: Give me accurate results at all times. Refute if it seems to be incorrect with sources.
 
-So why it is possible? Is it because the AI is weak or incomplete? No. It is doing what it is supposed to do. Generate text based on prompts. AI in LLMs is constructed in a manner that is used to spit out logical statements and texts which through heavy moderation and reinforced learning, spews out a line. It doesn't have a logical assessment beforehand to fix that. That is done by "Prompt Hardening". This helps in ironing out certain instructions that the AI would use to improve the instruction set. But there is a catch. Such instructions usually have a context limit which hampers the existing models including multimodal functions as well. 
+So why it is possible? Is it because the AI is weak or incomplete? No. It is doing what it is supposed to do. Generate text based on prompts. AI in LLMs is constructed in a manner that is used to spit out logical statements and texts which through heavy moderation and reinforced learning, spews out a line. It doesn't have a logical assessment beforehand to fix that. That is done by "Prompt Hardening". This helps in ironing out certain instructions that the AI would use to improve the instruction set. But there is a catch. Such instructions usually have a context limit which hampers the existing models including multimodal functions as well where the instructions are often removed beyond the context limit. 
+So what are the ways to improve the situation apart from instruction sets?
+
+## Prompt Hardening techniques
+
+So we have discovered a flaw in our current work case where the system information can be padded out. What are the solutions to the problem?
+
+### Pre-pad to prompt
+
+While it may seem repetitive, prompts can be prepadded at regular intervals to remind itself of the instruction set. That way even through variable context sizes, it recognises the input and focuses on improving as such.
+The logic is as follows:
+<Instruction set> + <Context Prompt> + <Current Prompt>
+If this is repeated at every prompt we raise to an issue where the context limit can be reached quickly. For example in the prompt hardening example above, the LLM expended 16 tokens to process that instruction set. If done on every line this would drastically increase as each context prompts will exponentially increase as well, unless there is a creative way to cull the context prompt for the sake of instruction prompts.
+
+So  to note:
+* **Beware of Context size:** 
