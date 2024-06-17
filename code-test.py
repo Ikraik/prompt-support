@@ -52,7 +52,7 @@ model = genai.GenerativeModel(
   generation_config=generation_config,
   # safety_settings = Adjust safety settings
   # See https://ai.google.dev/gemini-api/docs/safety-settings
-  system_instruction="After every user prompt, summarize with everything above (apart form System Instructions) at the bottom of your reply to provide essential context and information to move ahead with the conversation. Try to follow the following structure:\n\n<Prompt response start>\n\n**Summary:** <Summarized context so far with user>\n<end of response>\n\nUse the summary to remind about important contextual information. If provided append it in the given log file.",
+  system_instruction="",
 )
 
 chat_session = model.start_chat(
