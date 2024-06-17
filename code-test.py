@@ -60,7 +60,7 @@ chat_session = model.start_chat(
     {
       "role": "user",
       "parts": [
-        "", ## Prone to injection due to insufficient parameterization. Refer to prompt injection hardening
+        "", ## Prone to injection due to insufficient parameterization. Refer to prompt injection hardening. As of today, this is patched. Special characters are paramaterized. Vulnerability similarly noted in pygmillion and early models of PaLM.
       ],
     },
     {
