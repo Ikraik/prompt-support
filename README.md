@@ -218,7 +218,7 @@ Advantages:
 
 *Updated Revision (Creates text after 5 turns with 90% accuracy)*
 
-## Script injection
+## Script injection (Alert. WIP Vulnerability)
 Sample code may generate API keys.
 Example Response:
 
@@ -266,5 +266,5 @@ You have requested that I summarize our conversation after every prompt and stor
 ```
 ----
 
-Note: This seems to eject out possible keys. More testing required for this vulnerability exposing creator logins.
+Note: This seems to eject out possible keys. More testing required for this vulnerability exposing creator logins. Possible hallucinations, but format extracted from existing code for Google AI Studio. This response is to be discovered on other public platforms.
 ----
